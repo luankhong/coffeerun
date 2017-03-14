@@ -44,7 +44,7 @@ QUnit.test('Truck', function( assert ) {
     assert.ok(order2.emailAddress == 'dr@no.com' && order2.coffee == 'decaf', order2.emailAddress + ' ordered ' + order2.coffee);
     assert.ok(order3.emailAddress == 'm@bond.com' && order3.coffee == 'earl grey', order3.emailAddress + ' ordered ' + order3.coffee);
 
-    assert.equal(truck.summaryOrders(), 'Truck #ncc-1701 has pending orders: me@goldfinger.com double mocha | dr@no.com decaf | m@bond.com earl grey | ');
+    assert.equal(truck.summaryOrders(), 'Truck #ncc-1701 has pending orders: me@goldfinger.com double mocha | dr@no.com decaf | m@bond.com earl grey | ', truck.summaryOrders());
 
     truck.deliverOrder('dr@no.com');
     assert.ok(!('dr@no.com' in truck), 'Delivering order for dr@no.com');
@@ -52,6 +52,6 @@ QUnit.test('Truck', function( assert ) {
     truck.deliverOrder('m@bond.com');
     assert.ok(!('m@bond.com' in truck), 'Delivering order for m@bond.com');
 
-    assert.ok(truck.summaryOrders(), 'Truck #ncc-1701 has pending orders: me@goldfinger.com double mocha |');
+    assert.equal(truck.summaryOrders(), 'Truck #ncc-1701 has pending orders: me@goldfinger.com double mocha | ', truck.summaryOrders());
 
 });
