@@ -5,26 +5,22 @@ QUnit.test( 'hello test', function( assert ) {
 QUnit.test('DataStore.prototype.get', function( assert ) {
     var App = window.App;
     var ds = new App.DataStore();
-    ds.add('me@goldfinger.com', 'double mocha');
-    ds.add('dr@no.com', 'decaf');
-    ds.add('m@bond.com', 'earl grey');
+    ds.add('m@bond.com', 'tea');
+    ds.add('james@bond.com', 'eshpressho');
 
-    assert.ok(ds.get('m@bond.com') == 'earl grey', 'key of m@bond.com returned earl grey');
-    assert.ok(ds.get('dr@no.com') == 'decaf', 'key of dr@no.com returned decaf');
-    assert.ok(ds.get('me@goldfinger.com') == 'double mocha', 'key of me@goldfinger.com returned double mocha');
+    assert.ok(ds.get('m@bond.com') == 'tea', 'key of m@bond.com returned tea');
+    assert.ok(ds.get('james@bond.com') == 'eshpressho', 'key of dr@no.com returned eshpressho');
 });
 
 QUnit.test('DataStore.prototype.getAll', function( assert ) {
     var App = window.App;
     var ds = new App.DataStore();
-    ds.add('me@goldfinger.com', 'double mocha');
-    ds.add('dr@no.com', 'decaf');
-    ds.add('m@bond.com', 'earl grey');
+    ds.add('m@bond.com', 'tea');
+    ds.add('james@bond.com', 'eshpressho');
 
     var orders = ds.getAll();   //<--------------Testing getAll()
-    assert.ok(orders['m@bond.com'] == 'earl grey', 'key of m@bond.com returned earl grey');
-    assert.ok(orders['dr@no.com'] == 'decaf', 'key of dr@no.com returned decaf');
-    assert.ok(orders['me@goldfinger.com'] == 'double mocha', 'key of me@goldfinger.com returned double mocha');
+    assert.ok(orders['m@bond.com'] == 'tea', 'key of m@bond.com returned tea');
+    assert.ok(orders['james@bond.com'] == 'eshpressho', 'key of james@bond.com returned eshpressho');
 });
 
 //The problem I ran into is displaying diliverOrder() into Qunit assert..
